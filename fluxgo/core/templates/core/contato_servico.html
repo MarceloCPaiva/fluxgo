@@ -1,0 +1,32 @@
+{% extends "core/base.html" %}
+
+{% block title %}
+Contato | FluxGo
+{% endblock %}
+
+{% block content %}
+<div class="max-w-xl mx-auto mt-10 bg-white bg-opacity-10 p-6 rounded-xl text-white shadow-lg">
+    <h2 class="text-2xl font-bold mb-6">Solicitar Serviço</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="mb-4">
+            {{ form.nome.label_tag }}<br>
+            {{ form.nome }}
+        </div>
+        <div class="mb-4">
+            {{ form.email.label_tag }}<br>
+            {{ form.email }}
+        </div>
+        <div class="mb-4">
+            {{ form.whatsapp.label_tag }}<br>
+            {{ form.whatsapp }}
+        </div>
+        {{ form.tipo }} <!-- Campo oculto -->
+
+        <button type="submit" class="bg-white text-[#0E73C0] font-semibold px-6 py-2 rounded hover:bg-[#D8EAFF]">
+            Enviar
+        </button>
+    </form>
+</div>
+{% endblock %}

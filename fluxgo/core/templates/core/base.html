@@ -6,17 +6,20 @@
     <title>{% block title %}FluxGo{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@tailwindcss/typography@0.5.10/dist/typography.min.css" rel="stylesheet">
 </head>
 
 <body class="bg-gradient-to-b from-[#0AC4FF] to-[#0E73C0] min-h-screen text-white flex flex-col">
 {% load static %}
     <!-- Cabeçalho -->
     <header class="bg-[#113E6B] p-4 shadow-md">
+        <a href="{% url 'home' %}">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center justify-center space-x-3">
             <img src="{% static 'core/img/logo.png' %}" alt="Logo FluxGo" class="w-8 h-8">
             <h1 class="text-2xl font-bold text-white">FluxGo</h1>
         </div>
+        </a>
             <nav>
                 <a href="/" class="text-white hover:text-[#9CE7FF] mx-2">Home</a>
                 <a href="/servicos" class="text-white hover:text-[#9CE7FF] mx-2">Serviços</a>

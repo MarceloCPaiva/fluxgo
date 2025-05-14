@@ -1,0 +1,49 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}
+Servicos | FluxGo
+{% endblock %}
+
+{% block content %}
+
+<div class="max-w-4xl mx-auto mt-10 px-4">
+    <h2 class="text-4xl font-bold text-white text-center mb-8">Nossos Serviços</h2>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+        <div class="bg-white bg-opacity-10 rounded-xl p-6 shadow-lg">
+            <h3 class="text-xl font-semibold text-white mb-2">🤖 Automação de Atendimento WhatsApp com IA</h3>
+            <p class="text-[#D8EAFF] mb-4">Criamos fluxos inteligentes para responder clientes no WhatsApp 24/7 com inteligência artificial.</p>
+            <a href="{% url 'contato_servico' %}?tipo=whatsapp" class="inline-block mt-2 bg-white text-[#0E73C0] font-semibold px-4 py-2 rounded-lg hover:bg-[#D8EAFF] transition">
+                Quero esse serviço
+            </a>
+        </div>
+
+        <div class="bg-white bg-opacity-10 rounded-xl p-6 shadow-lg">
+            <h3 class="text-xl font-semibold text-white mb-2">💬 Automação de Comentários e Mensagens no Instagram</h3>
+            <p class="text-[#D8EAFF] mb-4">Respostas automáticas e personalizadas em comentários e DMs do Instagram com IA.</p>
+            <a href="{% url 'contato_servico' %}?tipo=whatsapp" class="inline-block mt-2 bg-white text-[#0E73C0] font-semibold px-4 py-2 rounded-lg hover:bg-[#D8EAFF] transition">
+                Quero esse serviço
+            </a>
+        </div>
+
+        <div class="bg-white bg-opacity-10 rounded-xl p-6 shadow-lg">
+            <h3 class="text-xl font-semibold text-white mb-2">🔗 Integração com CRMs</h3>
+            <p class="text-[#D8EAFF] mb-4">Conectamos seus atendimentos e leads aos principais CRMs do mercado como RD Station, Hubspot e outros.</p>
+            <a href="{% url 'contato_servico' %}?tipo=whatsapp" class="inline-block mt-2 bg-white text-[#0E73C0] font-semibold px-4 py-2 rounded-lg hover:bg-[#D8EAFF] transition">
+                Quero esse serviço
+            </a>
+        </div>
+
+        <div class="bg-white bg-opacity-10 rounded-xl p-6 shadow-lg">
+            <h3 class="text-xl font-semibold text-white mb-2">📊 Integração com Google Sheets</h3>
+            <p class="text-[#D8EAFF] mb-4">Automatize o envio e leitura de dados em tempo real no Google Sheets, sem complicação.</p>
+            <a href="{% url 'contato_servico' %}?tipo=whatsapp" class="inline-block mt-2 bg-white text-[#0E73C0] font-semibold px-4 py-2 rounded-lg hover:bg-[#D8EAFF] transition">
+                Quero esse serviço
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
