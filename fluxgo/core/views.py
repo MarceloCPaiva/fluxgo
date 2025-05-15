@@ -35,7 +35,7 @@ class ContatoServicoForm(forms.Form):
     """
     nome = forms.CharField(label='Nome', max_length=150)
     email = forms.EmailField(label='Email')
-    whatsapp = forms.CharField(label='Whatsapp', max_length=20)
+    telefone = forms.CharField(label='Telefone', max_length=20)
     tipo = forms.CharField(widget=forms.HiddenInput())
     
 

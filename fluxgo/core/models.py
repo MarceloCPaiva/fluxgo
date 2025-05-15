@@ -19,3 +19,12 @@ class Post(models.Model):
 
 ##Usuário: Paiva
 ##Senha: Mr140712
+
+class Solicitacao(models.Model):
+    nome = models.CharField(max_length=100)
+    email = models.EmailField()
+    telefone = models.CharField(max_length=20)
+    data_criacao = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.nome} - {self.email}"
