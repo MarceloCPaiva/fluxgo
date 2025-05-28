@@ -21,6 +21,15 @@ class Post(models.Model):
 ##Senha: Mr140712
 
 class Solicitacao(models.Model):
+    """
+    Modelo que representa uma solicitação de serviço feita por um cliente.
+
+    Atributos:
+        nome (CharField): Nome completo do cliente que está solicitando o serviço.
+        email (EmailField): Endereço de e-mail do cliente.
+        telefone (CharField): Número de telefone para contato.
+        data_criacao (DateTimeField): Data e hora em que a solicitação foi criada, preenchida automaticamente.
+    """
     nome = models.CharField(max_length=100)
     email = models.EmailField()
     telefone = models.CharField(max_length=20)

@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.edit import FormView
 from django.urls import reverse_lazy
 from django import forms
-from .models import Post
+from .models import Post, Solicitacao
+from .forms import SolicitacaoForm
 
 class HomeView(TemplateView):
     """
@@ -45,8 +46,8 @@ class ContatoServiceView(FormView):
     Mostra o formulário e processa os dados ao ser submetido.
     """
     template_name = "core/contato_servico.html"
-    form_class = ContatoServicoForm
-    success_url = reverse_lazy('home')
+    form_class = SolicitacaoForm
+    success_url = reverse_lazy('solicitacao_sucesso')
     
     def get_initial(self):
         """
@@ -62,6 +63,7 @@ class ContatoServiceView(FormView):
         lógica para salvar os dados ou enviar um e-mail.
         """
         print("Dados recebidos:", form.cleaned_data)
+        form.save()
         return super().form_valid(form)
 
 
@@ -81,3 +83,17 @@ class PostDetailView(DetailView):
     model = Post
     template_name = "core/post_detail.html"
     context_object_name = 'post'
+
+
+class SolicitacaoServicoView(FormView):
+    """
+    View baseada em formulário para o cliente solicitar um serviço.
+    Salva os dados no banco de dados através do SolicitacaoForm.
+    """
+    template_name = "core/solicitar_servico.html"
+    form_class = SolicitacaoForm
+    success_url = reverse_lazy('solicitacao_sucesso')
+    
+    def form_valid(self, form):
+        form.save()  # Salva a instância do modelo Solicitacao
+        return super().form_valid(form)

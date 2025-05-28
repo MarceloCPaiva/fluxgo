@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}
+Solicitar Serviço | FluxGo
+{% endblock %}
+
+{% block content %}
+<div class="max-w-xl mx-auto mt-12 sm:mt-16">
+    <div class="bg-white text-black p-6 sm:p-8 rounded-xl shadow-lg">
+        <h1 class="text-2xl sm:text-3xl font-bold mb-6 text-center text-gray-800">Solicite um Serviço</h1>
+        <form method="post" class="space-y-5">
+            {% csrf_token %}
+            <div>
+                <label for="{{ form.nome.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">Nome</label>
+                {{ form.nome }}
+                {% if form.nome.errors %}
+                    <p class="mt-1 text-sm text-red-500">{{ form.nome.errors.as_text }}</p>
+                {% endif %}
+            </div>
+            <div>
+                <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">E-mail</label>
+                {{ form.email }}
+                {% if form.email.errors %}
+                    <p class="mt-1 text-sm text-red-500">{{ form.email.errors.as_text }}</p>
+                {% endif %}
+            </div>
+            <div>
+                <label for="{{ form.telefone.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">Telefone</label>
+                {{ form.telefone }}
+                {% if form.telefone.errors %}
+                    <p class="mt-1 text-sm text-red-500">{{ form.telefone.errors.as_text }}</p>
+                {% endif %}
+            </div>
+            <div class="mt-8">
+                <button type="submit" class="w-full bg-[#113E6B] hover:bg-[#0E73C0] text-white font-semibold py-3 px-6 rounded-lg transition duration-300 ease-in-out">
+                    Enviar Solicitação
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
